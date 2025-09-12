@@ -1,119 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>prime Music - Songs</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Music - Songs</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .song-card {
+      transition: transform 0.3s ease;
+    }
+
+    .song-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .download-btn {
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #212529;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #adb5bd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .song-description {
+      font-size: 0.95rem;
+      color: #6c757d;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <a href="index.html">
-        <img src="img/pov.jpg" alt="Steven Logo">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/pov.jpg" alt="Logo" />
       </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="music.html">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="music.html" class="active">Music</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="menu-toggle">&#9776;</div>
   </nav>
 
   <!-- Music Section -->
-  <section class="music-page">
-    <h1>My Music</h1>
-    <p>Listen to my latest releases below 🎧</p>
-
-    <div class="song-list">
-
-      <!-- Song Card 1 -->
-      <div class="song-card">
-        <img src="img/wwy.jpg" alt="Where Were You">
-        <h3>Where Were You</h3>
-        <audio controls>
-          <source src="songs/empire.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-		<p class="song-description">
-         "Where Were You" dives into the raw emotions of heartbreak and loneliness. 
-         It reflects on the moments when people claim to care, but are absent when it matters most. 
-         The song combines soulful melodies with thought-provoking lyrics, creating an intimate connection 
-         with anyone who has felt unseen or unheard. A journey through pain, reflection, and eventual strength.
-       </p>
-		<!-- Download Button -->
-        <a href="songs/empire.mp3" download class="download-btn">Download</a>
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">My Music</h1>
+        <p class="text-muted">Listen to my latest releases below 🎧</p>
       </div>
 
-      <!-- Song Card 2 -->
-      <div class="song-card">
-        <img src="img/sd.jpg" alt="Another Song">
-        <h3>shattered dream</h3>
-        <audio controls>
-          <source src="songs/shattered dream.mp3" type="audio/mpeg">
-        </audio>
-		<!-- Download Button -->
-        <a href="songs/shattered dream.mp3" download class="download-btn">Download</a>
-      </div>
-      
-	  <!--song card 3-->
-	  <div class="song-card">
-        <img src="img/fin.jpg" alt="Another Song">
-        <h3>feel alright</h3>
-        <audio controls>
-          <source src="songs/feel alright.mp3" type="audio/mpeg">
-        </audio>
-		<!-- Download Button -->
-        <a href="songs/feel alright.mp3" download class="download-btn">Download</a>
-      </div>
-	  
-	  <!--song card 4-->
-	  <div class="song-card">
-        <img src="img/lon.jpg" alt="Another Song">
-        <h3>lonely</h3>
-        <audio controls>
-          <source src="songs/lonely.mp3" type="audio/mpeg">
-        </audio>
-		<!-- Download Button -->
-        <a href="songs/lonely.mp3" download class="download-btn">Download</a>
-      </div>
+      <div class="row g-4">
 
-      <!-- Add more songs here -->
+        <!-- Song Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card song-card h-100">
+            <img src="img/wwy.jpg" class="card-img-top" alt="Where Were You">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Where Were You</h5>
+              <audio controls class="w-100">
+                <source src="songs/empire.mp3" type="audio/mpeg">
+              </audio>
+              <p class="song-description mt-3">
+                "Where Were You" dives into the raw emotions of heartbreak and loneliness...
+              </p>
+              <a href="songs/empire.mp3" download class="btn btn-outline-primary mt-auto download-btn">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Song Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card song-card h-100">
+            <img src="img/sd.jpg" class="card-img-top" alt="Shattered Dream">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Shattered Dream</h5>
+              <audio controls class="w-100">
+                <source src="songs/shattered dream.mp3" type="audio/mpeg">
+              </audio>
+              <p class="song-description mt-3">
+                "Shattered Dream" captures the inner turmoil of loss and rebuilding...
+              </p>
+              <a href="songs/shattered dream.mp3" download class="btn btn-outline-primary mt-auto download-btn">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Song Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card song-card h-100">
+            <img src="img/fin.jpg" class="card-img-top" alt="Feel Alright">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Feel Alright</h5>
+              <audio controls class="w-100">
+                <source src="songs/feel alright.mp3" type="audio/mpeg">
+              </audio>
+              <p class="song-description mt-3">
+                A hopeful track about healing and finding joy after pain...
+              </p>
+              <a href="songs/feel alright.mp3" download class="btn btn-outline-primary mt-auto download-btn">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Song Card 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card song-card h-100">
+            <img src="img/lon.jpg" class="card-img-top" alt="Lonely">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Lonely</h5>
+              <audio controls class="w-100">
+                <source src="songs/lonely.mp3" type="audio/mpeg">
+              </audio>
+              <p class="song-description mt-3">
+                An emotional dive into solitude and the search for connection...
+              </p>
+              <a href="songs/lonely.mp3" download class="btn btn-outline-primary mt-auto download-btn">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more cards as needed -->
+
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Prime Music | All Rights Reserved</p>
-   <div class="socials">
-      <a href="https://www.instagram.com/_empireprime?igsh=MW9vMG43b200Z2diNg%3D%3D&utm_source=qr">Instagram</a> |
-      <a href="https://www.tiktok.com/@_empireprime_?_t=ZM-8zeGzajJzXR&_r=1">TikTok</a> |
-      <a href="https://youtube.com/channel/UCl9-EjrmFSWi7t0tULyg_PQ?si=dWCUFmd5ePcBdYHg">YouTube</a>
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 Prime Music | All Rights Reserved</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/_empireprime?igsh=MW9vMG43b200Z2diNg%3D%3D&utm_source=qr">Instagram</a>
+        <a href="https://www.tiktok.com/@_empireprime_?_t=ZM-8zeGzajJzXR&_r=1">TikTok</a>
+        <a href="https://youtube.com/channel/UCl9-EjrmFSWi7t0tULyg_PQ?si=dWCUFmd5ePcBdYHg">YouTube</a>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // Toggle mobile menu
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const navbar = document.querySelector('.navbar');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Change navbar on scroll
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
+  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
